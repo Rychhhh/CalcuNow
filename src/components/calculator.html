@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://play-lh.googleusercontent.com/pMnvB-u74E-yX0IzEJG5O546vIRmZDUV5ZZVHG_Xwv3f_Gb-XaYQCU1yEi-yqU7K2Gw">
+    <title>Calculator | CalculNow</title>
+</head>
+<body>
+   <div class="min-h-screen justify-center flex items-center mx-auto bg-sky-200">
+
+       <div class="calculator rounded-[30px] shadow-[0_35px_35px_rgba(0,0,0,0.25)] max-w-full p-10 h-[590px] bg-orange-100 font-['poppins']">
+        
+            <a href="../index.html" class="py-2 px-5 bg-red-200 text-sm font-bold rounded-[50px] hover:bg-red-400 duration-300 active:translate-y-2">Back To Home</a>
+
+           <h1 class="font-bold text-2xl text-center mb-5">Calculator </h1>
+        
+               <input type="text" placeholder="0" disabled class="w-[100%] p-10 rounded-xl bg-orange-300 text-white text-4xl font-bold" id="output-screen">
+
+               <div class="grid grid-rows-5 grid-col-4 ml-4 grid-flow-col gap-12 h-[100px] mt-10 text-white font-bold text-xl">
+                    <span onclick="del()" class="border-3 border-slate-400 bg-sky-400 w-20 h-10 flex items-center pl-7  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">Del</span>
+                    <span onclick="display('7')" class="border-3 border-slate-400 bg-sky-400 w-11 mx-5 h-10 flex items-center pl-3  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">7</span>
+                    <span onclick="display('4')" class="border-3 border-slate-400 bg-sky-400 w-11 h-10 mx-5 flex items-center pl-3  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">4</span>
+                    <span onclick="display('1')" class="border-3 border-slate-400 bg-sky-400 w-11 h-10 mx-5 flex items-center pl-3  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">1</span>
+                    <span onclick="bersihkan()" class="border-3 border-slate-400 bg-sky-400 w-11 h-10 mx-5 flex items-center pl-3  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">C</span>
+                    <span onclick="bersihkan()" class="border-3 border-slate-400 bg-sky-400 w-11 h-10 flex items-center pl-3  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">CI</span>
+                    <span onclick="display('8')" class="border-3 border-slate-400 bg-sky-400 w-11 h-10 flex items-center pl-3  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">8</span>
+                    <span onclick="display('5')" class="border-3 border-slate-400 bg-sky-400 w-11 h-10 flex items-center pl-3  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">5</span>
+                    <span onclick="display('2')" class="border-3 border-slate-400 bg-sky-400 w-11 h-10 flex items-center pl-3  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">2</span>
+                    <span onclick="display('.')" class="border-3 border-slate-400 bg-sky-400 w-11 h-10 flex items-center pl-4  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">.</span>
+                    <span onclick="display('%')" class="border-3 border-slate-400 bg-sky-400 w-11 h-10 flex items-center pl-3  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">%</span>
+                    <span onclick="display('9')" class="border-3 border-slate-400 bg-sky-400 w-11 h-10 flex items-center pl-3  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">9</span>
+                    <span onclick="display('6')" class="border-3 border-slate-400 bg-sky-400 w-11 h-10 flex items-center pl-3  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">6</span>
+                    <span onclick="display('3')" class="border-3 border-slate-400 bg-sky-400 w-11 h-10 flex items-center pl-4  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">3</span>
+                    <span onclick="calculator()" class="border-3 border-slate-400 bg-sky-400 w-32 -mx-30 h-10 flex items-center pl-14 ml rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">=</span>
+                    <span onclick="display('/')" class="border-3 border-slate-400 bg-sky-400 w-10 h-10 -mx-20 flex items-center pl-4  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">/</span>
+                    <span onclick="display('*')" class="border-3 border-slate-400 bg-sky-400 w-11 h-10 -mx-20 flex items-center pl-4  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">X</span>
+                    <span onclick="display('-')" class="border-3 border-slate-400 bg-sky-400 w-11 h-10 -mx-20 flex items-center pl-4  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl"> - </span>
+                    <span onclick="display('+')" class="border-3 border-slate-400 bg-sky-400 w-11 h-10 -mx-20 flex items-center pl-3  rounded-[65px] duration-100 shadow-[50px] active:translate-y-2 active:shadow-xl">+</span>
+                </div>
+        
+       </div>
+
+   </div>
+
+   <script src="../js/calculator.js"></script>
+
+</body>
+
+</html>
